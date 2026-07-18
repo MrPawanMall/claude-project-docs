@@ -1,3 +1,14 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="claude-project-docs — one source document to six planning docs" width="880">
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/version-1.0.2-blue.svg" alt="Version 1.0.2">
+  <img src="https://img.shields.io/badge/Claude%20Code-plugin-d97757.svg" alt="Claude Code plugin">
+  <a href="https://www.pawanmall.in"><img src="https://img.shields.io/badge/author-Pawan%20Mall-0f766e.svg" alt="Author: Pawan Mall"></a>
+</p>
+
 # claude-project-docs
 
 A [Claude Code](https://claude.com/claude-code) skill that transforms **one source document** (PRD, proposal, brief, spec, SRS, client email, meeting notes) into **six standard planning documents** for AI-assisted development.
@@ -14,6 +25,21 @@ Source documents can be **`.md`, `.txt`, `.pdf`, `.docx`**, HTML, or any readabl
 | `Memory.md` | WHERE the project stands — living context file with an update protocol |
 
 The skill enforces **source traceability**: every statement in the generated docs is either grounded in your source document, explicitly marked `*(assumed)*` with reasoning, or flagged as `⚠ GAP` for you to answer. Nothing is silently invented.
+
+## How it works
+
+```mermaid
+flowchart LR
+    SRC["📄 Source document<br/>.md · .txt · .pdf · .docx"] --> SKILL{{"generating-project-docs<br/>skill"}}
+    SKILL -- "asks you about<br/>critical gaps first" --> SKILL
+    SKILL --> R["Project-Requirement.md<br/><i>what &amp; why</i>"]
+    SKILL --> A["Architecture.md<br/><i>technical structure</i>"]
+    SKILL --> D["Design.md<br/><i>screens &amp; flows</i>"]
+    SKILL --> RU["Rules.md<br/><i>coding conventions</i>"]
+    SKILL --> P["Phases.md<br/><i>build order</i>"]
+    SKILL --> M["Memory.md<br/><i>living context</i>"]
+    R -. "FR / NFR IDs referenced by" .-> A & D & P
+```
 
 ## Installation
 
@@ -68,6 +94,8 @@ claude-project-docs/
 ├── .claude-plugin/
 │   ├── marketplace.json          # Marketplace manifest
 │   └── plugin.json               # Plugin manifest
+├── assets/
+│   └── banner.svg                # README banner image
 ├── skills/
 │   └── generating-project-docs/
 │       ├── SKILL.md              # The skill: process, provenance rules, checklist
@@ -94,6 +122,13 @@ They separate concerns that usually get tangled in one giant README:
 
 Issues and PRs welcome. If you add or change template sections, update the table in `SKILL.md` and this README.
 
+## Author
+
+**Pawan Mall**
+
+- 🌐 Website: [www.pawanmall.in](https://www.pawanmall.in)
+- 💻 GitHub: [@MrPawanMall](https://github.com/MrPawanMall)
+
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) © [Pawan Mall](https://www.pawanmall.in)

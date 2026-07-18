@@ -1,10 +1,12 @@
 {
   "name": "project-docs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Skill that transforms a PRD, proposal, brief, or spec into six standard planning documents: Project-Requirement.md, Architecture.md, Design.md, Rules.md, Phases.md, and Memory.md — with strict source-traceability so nothing is silently invented.",
   "author": {
-    "name": "MrPawanMall"
+    "name": "Pawan Mall",
+    "url": "https://www.pawanmall.in"
   },
+  "homepage": "https://www.pawanmall.in",
   "license": "MIT",
   "repository": "https://github.com/MrPawanMall/claude-project-docs",
   "keywords": [
