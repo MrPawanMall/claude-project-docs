@@ -1,6 +1,8 @@
 # claude-project-docs
 
-A [Claude Code](https://claude.com/claude-code) skill that transforms **one source document** (PRD, proposal, brief, spec, SRS, client email, meeting notes) into **six standard planning documents** for AI-assisted development:
+A [Claude Code](https://claude.com/claude-code) skill that transforms **one source document** (PRD, proposal, brief, spec, SRS, client email, meeting notes) into **six standard planning documents** for AI-assisted development.
+
+Source documents can be **`.md`, `.txt`, `.pdf`, `.docx`**, HTML, or any readable file — or several files treated as one source. (Legacy binary `.doc` files should be re-saved as `.docx` or `.pdf` first.)
 
 | File | Answers |
 |------|---------|

@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Generate standard project planning documents (requirements, architecture, rules, phases, design, memory) from a single source document",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "plugins": [
     {
       "name": "project-docs",
       "source": "./",
       "description": "Skill that transforms a PRD, proposal, brief, or spec into six standard planning documents: Project-Requirement.md, Architecture.md, Design.md, Rules.md, Phases.md, and Memory.md — with strict source-traceability so nothing is silently invented.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "MrPawanMall"
       },

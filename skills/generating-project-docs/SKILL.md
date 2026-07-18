@@ -1,6 +1,6 @@
 ---
 name: generating-project-docs
-description: Use when a project has a source document (PRD, proposal, brief, spec, SRS, client email, meeting notes) and needs standard planning documents created — requirements, architecture, rules, phases, design, and memory files. Also use when asked to "set up project docs", "bootstrap the docs folder", or prepare a project for AI-assisted development.
+description: Use when a project has a source document (PRD, proposal, brief, spec, SRS, client email, meeting notes — as .md, .txt, .pdf, .docx, or any readable file) and needs standard planning documents created — requirements, architecture, rules, phases, design, and memory files. Also use when asked to "set up project docs", "bootstrap the docs folder", or prepare a project for AI-assisted development.
 ---
 
 # Generating Project Docs
@@ -16,6 +16,20 @@ Transform ONE source document into SIX standard planning documents that give any
 - Onboarding docs are requested for an existing project (use the codebase itself as the source document)
 
 **When NOT to use:** No source material exists at all — gather requirements first (interview the user), then use this skill on the notes.
+
+## Source Input Formats
+
+The source can be any readable document. Handle each format like this:
+
+| Format | How to read |
+|--------|-------------|
+| `.md`, `.txt`, `.html`, code/config files | Read directly |
+| `.pdf` | Read directly; for long PDFs read in page batches until the whole document is covered |
+| `.docx` | Extract text first: `pandoc file.docx -t markdown` if pandoc is available; otherwise unzip it (a `.docx` is a zip) and strip tags from `word/document.xml` |
+| `.doc` (legacy binary) | Cannot be parsed reliably — ask the user to re-save it as `.docx` or `.pdf` |
+| Multiple files / mixed formats | Read all of them; treat the set as one source and note conflicts between them |
+
+Never generate from a partially read source — if extraction fails or pages are unreadable, tell the user which parts are missing before proceeding.
 
 ## The Six Documents
 
