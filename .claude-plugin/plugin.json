@@ -1,6 +1,6 @@
 {
   "name": "project-docs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Skill that transforms a PRD, proposal, brief, or spec into six standard planning documents: Project-Requirement.md, Architecture.md, Design.md, Rules.md, Phases.md, and Memory.md — with strict source-traceability so nothing is silently invented.",
   "author": {
     "name": "Pawan Mall",

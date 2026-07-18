@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
-  <img src="https://img.shields.io/badge/version-1.0.2-blue.svg" alt="Version 1.0.2">
+  <img src="https://img.shields.io/badge/version-1.0.3-blue.svg" alt="Version 1.0.3">
   <img src="https://img.shields.io/badge/Claude%20Code-plugin-d97757.svg" alt="Claude Code plugin">
   <a href="https://www.pawanmall.in"><img src="https://img.shields.io/badge/author-Pawan%20Mall-0f766e.svg" alt="Author: Pawan Mall"></a>
 </p>
@@ -41,23 +41,88 @@ flowchart LR
     R -. "FR / NFR IDs referenced by" .-> A & D & P
 ```
 
-## Installation
+## Installation (Choose One)
 
-### As a Claude Code plugin (recommended)
+### Marketplace (Recommended)
+
+Inside a Claude Code session:
+
+```
+/plugin marketplace add MrPawanMall/claude-project-docs
+/plugin install project-docs@project-docs
+```
+
+Or from your terminal:
 
 ```bash
 claude plugin marketplace add MrPawanMall/claude-project-docs
 claude plugin install project-docs@project-docs
 ```
 
-### Manual (personal skill)
+Restart Claude Code when prompted.
 
-Copy `skills/generating-project-docs/` into your skills directory:
+### Install from a GitHub URL
 
-- **Windows:** `%USERPROFILE%\.claude\skills\generating-project-docs\`
-- **macOS/Linux:** `~/.claude/skills/generating-project-docs/`
+The marketplace command also accepts the full repository URL:
 
-Or per-project: `<repo>/.claude/skills/generating-project-docs/`
+```bash
+claude plugin marketplace add https://github.com/MrPawanMall/claude-project-docs
+claude plugin install project-docs@project-docs
+```
+
+### Install via skills.sh
+
+```bash
+npx skills add MrPawanMall/claude-project-docs
+```
+
+> **Note:** This installs the skill only (no plugin metadata). Works with Claude Code, Cursor, and every other agent supported by [skills.sh](https://skills.sh/) — add `-g` for a global (user-level) install, or `--agent claude-code` to target Claude Code specifically.
+
+### Install via Agent Skills CLI
+
+```bash
+npx agent-skills-cli@latest install https://github.com/MrPawanMall/claude-project-docs
+```
+
+> **Note:** This installs the skill only (no plugin metadata). Supports exporting to 40+ AI agents including Claude Code, Cursor, GitHub Copilot, and Windsurf. The skill is validated against the [Agent Skills specification](https://agentskills.io/specification).
+
+### Local Development
+
+```bash
+git clone https://github.com/MrPawanMall/claude-project-docs.git
+cp -r claude-project-docs/skills/* ~/.claude/skills/
+```
+
+Windows (PowerShell):
+
+```powershell
+git clone https://github.com/MrPawanMall/claude-project-docs.git
+Copy-Item -Recurse claude-project-docs\skills\* "$env:USERPROFILE\.claude\skills\"
+```
+
+Restart Claude Code after copying.
+
+## Test Your Installation
+
+Verify the skill is registered:
+
+```bash
+claude plugin list        # plugin installs — look for project-docs (enabled)
+npx skills list -g        # skills.sh installs
+```
+
+Then try it on a real document in a Claude Code session:
+
+```
+# Point it at any source document
+"Use generating-project-docs on docs/client-brief.pdf"
+
+# Or just describe what you want
+"Create the project planning docs from proposal.md"
+"Set up project docs for AI-assisted development from this PRD"
+```
+
+You should see Claude read the source completely, ask about critical gaps, and generate the six documents into `docs/`.
 
 ## Usage
 
